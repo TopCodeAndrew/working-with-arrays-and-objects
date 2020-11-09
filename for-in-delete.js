@@ -7,41 +7,50 @@
 */
 
 /*
-  First we'll look at the difference between accessing property values in a for in loop and accessing the property name in a for in loop.
-  In the example below, we are accessing the property values. Uncomment the code below, run it and look at what prints in the console.
+  First we'll look at the difference between accessing property values in a for in loop and 
+  accessing the property name in a for in loop.
+  In the example below, we are accessing the property values. Uncomment the code below, 
+  run it and look at what prints in the console.
 */
 
-// var values = {
-//   one: 'These',
-//   two: ' are',
-//   three: ' the',
-//   four: ' property',
-//   five: ' values.'
-// } 
+var values = {
+  one: 'These',
+  two: ' are',
+  three: ' the',
+  four: ' property',
+  five: ' values.'
+} 
 
-// for(var key in values) {
-//   console.log(values[key])
-// }
+for(var key in values) {
+  console.log(values[key])
+}
 
 /*
-  In this next example, we are accessing the property names themselves. Uncomment the code below, run it and look at what prints in the console.
+  In this next example, we are accessing the property names themselves. Uncomment the code below, 
+  run it and look at what prints in the console.
 */
 
-// for(var key in values) {
-//   console.log(key)
-// }
+for(var key in values) {
+  console.log(key)
+}
 
 
 
 ////////// PROBLEM 1 //////////
 
 /*
-  Inside the function showValues, write a for in loop that concatenates each of the property values and returns the concatenated string.
+  Inside the function showValues, write a for in loop that concatenates each of the property values and 
+  returns the concatenated string.
 */
 
 function showValues( obj ) {
-  //Code Here
+  let newString = "";
+  for(let key in obj) {
+    newString += obj[key];
+  }
+  return newString;
 }
+
 
 
 
@@ -53,7 +62,15 @@ function showValues( obj ) {
   Return the updated object.
 */
 
-//Code Here
+function greaterThan10 (obj) {
+  for (let key in obj) {
+    if(obj[key] > 10) {
+      obj[key] = 0
+    }
+  }
+  return obj
+}
+
 
 
 
@@ -65,7 +82,12 @@ function showValues( obj ) {
   Return the updated object.
 */
 
-//Code Here
+function double(obj) {
+  for (let key in obj) {
+    obj[key] = obj[key] *2
+  }
+  return obj
+}
 
 
 
@@ -79,7 +101,15 @@ function showValues( obj ) {
   By the end of the for in loop, you should have a sentence, return that sentence.
 */
 
-//Code Here
+function secrets(obj) {
+  let myStr = "";
+  for(let key in obj) {
+    if (key.startsWith("sh")){
+      myStr += obj[key]
+    } 
+  }
+  return myStr
+}
 
 
 
@@ -89,17 +119,17 @@ function showValues( obj ) {
   Uncomment the example below to see a for in loop deleting all the properties inside an object.
 */
 
-// var deleteAllThethings = {
-//   one: 1,
-//   two: 2,
-//   three: 3
-// }
+var deleteAllThethings = {
+  one: 1,
+  two: 2,
+  three: 3
+}
 
-// for(var key in deleteAllThethings) {
-//   delete deleteAllThethings[key]
-// }
+for(var key in deleteAllThethings) {
+  delete deleteAllThethings[key]
+}
 
-// console.log(deleteAllThethings)
+console.log(deleteAllThethings)
 
 
 
@@ -110,7 +140,10 @@ function showValues( obj ) {
   Delete the property password and return the object.
 */
 
-//Code Here
+function removePassword(obj) {
+  delete obj.password;
+  return obj
+}
 
 
 
@@ -129,7 +162,12 @@ var deleteTheBigNumbers = {
   Write a for in loop that deletes every property from the object deleteTheBigNumbers whose value is greater than 100.
 */
 
-//Code Here
+for (let key in deleteTheBigNumbers) {
+  if (deleteTheBigNumbers[key] > 100){
+    delete deleteTheBigNumbers[key]
+  }
+}
+
 
 
 
@@ -142,7 +180,14 @@ var deleteTheBigNumbers = {
   Return the updated object.
 */
 
-//Code Here
+function startsWithK(obj){
+  for (let key in obj){
+    if (key.startsWith("k")){
+      delete obj[key]
+    }
+  }
+  return obj
+}
 
 
 
@@ -157,6 +202,12 @@ var deleteTheBigNumbers = {
   (hint: the method includes() may be of use...)
 */
 
-//Code Here
-
+function hiddenTreasure(obj){
+  for (let key in obj){
+    if (!obj[key].includes("treasure")){
+      delete obj[key];
+    }
+  }
+  return obj;
+}
 
